@@ -1,4 +1,4 @@
-site_name: JR-ETES-DOCS
+site_name: JR-DOCS
 
 theme:
   name: simple-blog
@@ -20,6 +20,9 @@ docs_dir: src
 
 extra_css:
   - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
 
 nav:
   - Home: index.md
