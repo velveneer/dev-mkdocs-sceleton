@@ -16,3 +16,5 @@ cp build_deploy_gh.sh build/
 cp README.md build/
 cp .gitignore build/
 cp setup.sh build/
+cp build_deploy_gh.sh build/
+
