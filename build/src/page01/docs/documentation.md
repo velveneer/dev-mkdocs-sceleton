@@ -1,11 +1,5 @@
 # [Git Issue 373](https://git.etes.de/edira/edira/-/issues/373)
 
-TODO
-
-- move labels from forms.php to company.php
-- add company_probability to down() schema function
-- 
-
 ---
 
 # 1. Breakdown
@@ -13,8 +7,6 @@ TODO
 The goal of this part of the Issue 373 was to rework the damage & probability scores settings inside the company settings. 
 
 These changes mainly include splitting up the database storage and implementing a new table schema. This seperation should result in improvements in the frontend for a better user experience like having the operators and currencies as a dropdown menu to choose instead of copying them manually or improving the display of text and numbers.
-
-![Änderungen Eintrittswahrscheinlichkeits Reiter](../src/img/1.png)
 
 ---
 
@@ -46,21 +38,6 @@ php artisan make:model Company/CompanyProbability
     $table->string('operator')->index()->default('');
     $table->unsignedBigInteger('value');
     $table->string('currency')->index()->default('');
-
-    $table->timestamps();
-
-    $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
-    $table->unique('id');
-});
-
-Schema::create('company_probability', function (Blueprint $table) {
-    $table->id();
-    $table->unsignedBigInteger('tenant_id');
-
-    $table->unsignedBigInteger('score_number');
-    $table->string('operator')->index()->default('');
-    $table->string('value')->index()->default('');
-    $table->string('timescale')->index()->default('');
 
     $table->timestamps();
 

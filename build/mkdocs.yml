@@ -18,6 +18,9 @@ theme:
 
 docs_dir: src
 
+watch:
+  - src
+
 extra_css:
   - stylesheets/extra.css
 
@@ -30,4 +33,4 @@ nav:
     - SubPage01:
       - SubPage01: page01/docs/documentation.md
   - Page02:
-    - Page02: Page02/docs/documentation.md
+    - Page02: page02/docs/documentation.md
