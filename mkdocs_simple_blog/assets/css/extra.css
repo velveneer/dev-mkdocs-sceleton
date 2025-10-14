@@ -11,8 +11,6 @@
     padding-right: 0rem !important;
     margin-left: 5% !important;
     margin-right: 5% !important;
-    border-bottom: #000000 0.1rem solid !important;
-    height: 6vh !important;
 }
 
 .container-fluid{
@@ -20,32 +18,14 @@
     padding-right: 0rem !important;
 }
 
+/* .container-fluid {
+    padding-left: 0rem;
+    padding-right: 0rem;
+} */
+
 /* Side Menu */
 .sidebar {
     border-radius: 0rem !important;
-    border: 0rem !important;
-}
-
-.nav-link{
-    padding-left: 0rem !important;
-}
-
-/* Bottom Nav */
-#component-preview{
-    height: 6vh !important;
-    padding: 0rem !important;
-    border-top: #000000 0.1rem solid !important;margin-left: 5% !important;
-    margin-right: 5% !important;
-    vertical-align: middle !important;
-}
-
-/* Preview Buttons */
-.previous-button {
-    text-align: left !important;
-}
-
-.next-button {
-    text-align: right !important;
 }
 
 /* Body */
@@ -58,15 +38,12 @@
 main {
     margin-left: 5% !important;
     margin-right: 5% !important;
-    height: 88vh !important;
 }
 
 #component-sidebar{
     padding-left: 0rem !important;
     padding-right: 0rem !important;
     width: 20% !important;
-    border-right: #000000 0.1rem solid !important;
-    height: 88vh;
 }
 
 .col-md-9 {
@@ -76,8 +53,12 @@ main {
 }
 
 .container .post {
-    height: 88vh !important;
+    height: 85vh !important;
     overflow: scroll !important;
+}
+
+article{
+    padding-right: 25%;
 }
 
 article header {
@@ -121,9 +102,9 @@ article header {
     padding-left: 2rem;
     padding-right: 2rem;
     margin: 0 !important;
-    border-left: 0.1rem solid black;
-    border-right: 0.1rem solid black;
-    border-bottom: 0.1rem solid black;
+    border-left: 0.2rem solid black;
+    border-right: 0.2rem solid black;
+    border-bottom: 0.2rem solid black;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -140,7 +121,7 @@ summary {
     background-color: #000000;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    font-weight: semibold;
+    font-weight: bold;
     width: 100%;
     margin-top: 0px !important;
     padding-left: 2rem;
@@ -153,35 +134,8 @@ pre{
     padding-right: 2rem !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-}
-
-pre#codeblock{
-    border: #000000 0.1rem solid;
-}
-
-#codeblock{
-    background-color: #ffffff !important;
-    color:#000000 !important;
-}
-
-code#codeblock{
-    padding: 0rem !important;
-    margin: 0rem !important;
+    border: #000000 1px solid;
 }
 
 
-/* Borders */
-hr{
-    border-top: #000000 0.1rem solid !important;
-    opacity: 25% !important;
-}
 
-.previous-button{
-    display: flex !important;
-    align-items: center !important;
-}
-
-.next-button{
-    display: grid !important;
-    align-items: center !important;
-}

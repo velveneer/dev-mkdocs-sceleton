@@ -52,7 +52,6 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-build/
 develop-eggs/
 downloads/
 eggs/
@@ -146,7 +145,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 downloads/
 eggs/
