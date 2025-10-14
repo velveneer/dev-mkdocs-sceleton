@@ -8,8 +8,6 @@ The goal of this part of the Issue 373 was to rework the damage & probability sc
 
 These changes mainly include splitting up the database storage and implementing a new table schema. This seperation should result in improvements in the frontend for a better user experience like having the operators and currencies as a dropdown menu to choose instead of copying them manually or improving the display of text and numbers.
 
-![Änderungen Eintrittswahrscheinlichkeits Reiter](../src/img/1.png)
-
 ---
 
 # 2. Preparations

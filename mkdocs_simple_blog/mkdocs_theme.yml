@@ -23,3 +23,11 @@ extra_css:
 
 markdown_extensions:
   - admonition
+
+nav:
+  - Home: index.md
+  - Page01:
+    - SubPage01:
+      - SubPage01: page01/docs/documentation.md
+  - Page02:
+    - Page02: Page02/docs/documentation.md
