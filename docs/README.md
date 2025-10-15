@@ -18,7 +18,6 @@ You can run this website locally or hosted on your online gitrepo pages. Follow 
 ├── .gitlab-ci.yml                      # CI pipeline to build GitLab Page for MkDocs
 ├── mkdocs.yml                          # MkDocs config (Navigation, Theme, etc.)
 ├── README.md                           # Repository overview & setup instructions
-├── requirements.txt                    # Python packages that get installed by the setup.sh script
 ├── simple-blog-gh.sh                   # Script to builds compressed site and pushes it to github pages
 ├── simple-blog-install-from-tar.sh     # Script that sets up python virtual environment, installs MkDocs & custom simple-blog package
 └── simple-blog-run.sh                  # Script that runs live reloading locally hosted page
@@ -84,7 +83,7 @@ pip install dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
 !!! Note
     This installs the simple blog theme from the `/dist` folder and not the original version.
 
-**Automativ Setup with Script**
+**Automatic Setup with Script**
 
 Alternatively you can run these commands the provided script in this folder. Before doing that you need to give the file permission to execute commands:
 

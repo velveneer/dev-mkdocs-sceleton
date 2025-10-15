@@ -1,15 +1,15 @@
 # Apply changes and build new package
-./simple-blog-build-install.sh
+./simple-blog-build-package.sh
 
 # Make compact build directory
-rm -rd build
-mkdir build
-cp -r dist build/
-cp -r src build/
-cp mkdocs.yml build/
-cp simple-blog-gh.sh build/
-cp simple-blog-install-from-tar.sh build/
-cp simple-blog-run.sh build/
-cp README-build.md build/README.md
-cp .gitignore build/
-cp .gitlab-ci.yml build/
+rm -rd docs
+mkdir docs
+cp -r dist docs/
+cp -r src docs/
+cp mkdocs.yml docs/
+cp simple-blog-gh.sh docs/
+cp simple-blog-install-from-tar.sh docs/
+cp simple-blog-run.sh docs/
+cp README-build.md docs/README.md
+cp .gitignore docs/
+cp .gitlab-ci.yml docs/
