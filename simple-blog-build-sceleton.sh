@@ -11,6 +11,5 @@ cp simple-blog-gh.sh build/
 cp simple-blog-install-from-tar.sh build/
 cp simple-blog-run.sh build/
 cp README-build.md build/README.md
-cp requirements.txt build/
 cp .gitignore build/
 cp .gitlab-ci.yml build/
