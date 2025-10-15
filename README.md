@@ -8,8 +8,9 @@ This repository contains a sceleton project structure that allows you to costumi
 
 ```
 .
-├── docs/                               # Contains minimum files to use this build in a project
 ├── dist/                               # Contains the custom build python package
+├── docs/                               # Contains minimum files to use this build in a project
+
 ├── mkdocs_simple_blog/                 # Simple-blog src files for customization
 ├── scripts/                            # Simple-blog script files to update template after changes
 ├── src/                                # All documentation files
