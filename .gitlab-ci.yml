@@ -1,0 +1,39 @@
+image: python:3.10
+
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - .cache/pip
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+before_script:
+  - pip install --upgrade pip
+  - pip install mkdocs
+  - pip install dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
+
+build-docs:
+  stage: build
+  script:
+    - mkdocs build --strict
+  artifacts:
+    paths:
+      - site
+    expire_in: 1 week
+  only:
+    - main
+    - master
+
+pages:
+  stage: deploy
+  script:
+    - mkdocs build --site-dir public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

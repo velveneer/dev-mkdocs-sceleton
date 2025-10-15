@@ -32,5 +32,6 @@ nav:
   - Page01:
     - SubPage01:
       - SubPage01: page01/docs/documentation.md
+      - SubPage02: page01/docs/documentation.md
   - Page02:
     - Page02: page02/docs/documentation.md
