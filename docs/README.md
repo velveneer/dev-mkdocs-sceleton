@@ -10,6 +10,7 @@ You can run this website locally or hosted on your online gitrepo pages. Follow 
 
 ## Project Structure 
 
+<div id='codeblock'>
 ```
 .
 ├── mkdocs_simple_blog/                 # Simple-blog src files for customization
@@ -22,6 +23,9 @@ You can run this website locally or hosted on your online gitrepo pages. Follow 
 ├── simple-blog-install-from-tar.sh     # Script that sets up python virtual environment, installs MkDocs & custom simple-blog package
 └── simple-blog-run.sh                  # Script that runs live reloading locally hosted page
 ```
+
+</div>
+
 
 ## **Getting Started**
 
@@ -189,18 +193,38 @@ To automatically insert this code snippet in your file add a user snippet in `VS
 
 ```json
 {
-	"make_block": {
-		"prefix": "block",
+	"toggle_accordion": {
+		"prefix": "accordion",
 		"body": [
 			"<details>",
 			"<summary>Show Code</summary>",
-			"<pre id='codeblock'>",
-			"<code class='language-php' id='codeblock'>$TM_SELECTED_TEXT${1:}</code>",
-			"</pre>",
+			"<div id='accordion'>",
+            "```php",
+			"$TM_SELECTED_TEXT${1:}",
+			"```",
 			"</details>"
 		],
-		"description": "Encloses selected text in PHP accordion code block"
-	}
+		"description": "Encloses selected text in accordion code block"
+	},
+    "toggle_codeblock": {
+		"prefix": "codeblock",
+		"body": [
+			"<div id='codeblock'>",
+			"```",
+			"$TM_SELECTED_TEXT${1:}",
+			"```",
+			"</div>"
+		],
+		"description": "Encloses selected text in code block"
+	},
+    "toggle_codeline": {
+		"prefix": "codeline",
+		"body": [
+			"<div id='codeline'>$TM_SELECTED_TEXT${1:}</div>"
+		],
+		"description": "Encloses selected text in code line"
+	},
+
 }
 ```
 
@@ -212,7 +236,17 @@ And this to
 {
     "key": "ctrl+m",
     "command": "editor.action.insertSnippet",
-    "args": { "name": "make_block" }
+    "args": { "name": "toggle_accordion" }
+},
+{
+    "key": "ctrl+k",
+    "command": "editor.action.insertSnippet",
+    "args": { "name": "toggle_codeblock" }
+},
+{
+    "key": "ctrl+n",
+    "command": "editor.action.insertSnippet",
+    "args": { "name": "toggle_codeline" }
 },
 ```
 

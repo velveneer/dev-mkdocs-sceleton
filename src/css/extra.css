@@ -145,30 +145,45 @@ summary {
     margin-top: 0px !important;
     padding-left: 2rem;
     width: auto;
-} 
+}
 
-pre{
+pre {
     margin: 0rem;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    background-color: inherit !important;
+    color: inherit !important;
 }
 
-pre#codeblock{
-    border: #000000 0.1rem solid;
-}
-
-#codeblock{
-    background-color: #ffffff !important;
-    color:#000000 !important;
-}
-
-code#codeblock{
+code {
     padding: 0rem !important;
     margin: 0rem !important;
+    background-color: inherit !important;
+    color: inherit !important;
 }
 
+#codeblock {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+#accordion {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: #000000 0.1rem solid !important;
+}
+
+#codeline {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: .2rem .8rem !important;
+    font-size: 1em !important;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: fit-content;
+}
 
 /* Borders */
 hr{
