@@ -1,3 +1,7 @@
+# Create virtual environment and install dependencies
+python -m venv venv
+source venv/bin/activate
+
 # Making sure the right package is installed
 ./simple-blog-install-from-tar.sh
 
