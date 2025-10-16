@@ -180,3 +180,41 @@ Or use my customization that first hides the whole block behind an accordion. To
 </details>
 ```
 
+#### VS Code Shortcut
+
+To automatically insert this code snippet in your file add a user snippet in `VS-Code` by adding this to 
+
+`markdown.json`:
+
+
+```json
+{
+	"make_block": {
+		"prefix": "block",
+		"body": [
+			"<details>",
+			"<summary>Show Code</summary>",
+			"<pre id='codeblock'>",
+			"<code class='language-php' id='codeblock'>$TM_SELECTED_TEXT${1:}</code>",
+			"</pre>",
+			"</details>"
+		],
+		"description": "Encloses selected text in PHP accordion code block"
+	}
+}
+```
+
+And this to 
+
+`keybindings.json`:
+
+```json
+{
+    "key": "ctrl+m",
+    "command": "editor.action.insertSnippet",
+    "args": { "name": "make_block" }
+},
+```
+
+!!! Note
+    Now you can enclose your code with the shortcut `strg+m`
