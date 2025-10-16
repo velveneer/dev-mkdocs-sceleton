@@ -14,15 +14,16 @@ variables:
 before_script:
   - pip install --upgrade pip
   - pip install mkdocs
-  - pip install dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
+  - pip install docs/dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
 
 build-docs:
   stage: build
   script:
+    - cd docs
     - mkdocs build --strict
   artifacts:
     paths:
-      - site
+      - docs/site
     expire_in: 1 week
   only:
     - main
@@ -31,7 +32,8 @@ build-docs:
 pages:
   stage: deploy
   script:
-    - mkdocs build --site-dir public
+    - cd docs
+    - mkdocs build --site-dir ../public
   artifacts:
     paths:
       - public
