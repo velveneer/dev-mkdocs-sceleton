@@ -1,6 +1,10 @@
 # Sceleton MkDocs Project
 
-This repository contains a sceleton project structure that allows you to costumize the theme of the simple-blog fork for mkdocs. 
+This folder contains the documentation for this project. 
+
+It runs on the python based static site generator `MkDocs` I've implemented my own fork based on the `simple-blog` theme from [Fernando Celmers](https://github.com/FernandoCelmer/mkdocs-simple-blog).
+
+You can run this website locally or hosted on your online gitrepo pages. Follow the steps down below to setup and use this application.
 
 ---
 
@@ -8,26 +12,16 @@ This repository contains a sceleton project structure that allows you to costumi
 
 ```
 .
-├── mkdocs_simple_blog/         # Simple-blog src files for customization
-├── scripts/                    # Simple-blog script files to update template after changes
-├── src/                        # All documentation files
-│   ├── page01/                 # Files for menu point 1
-│   │   ├── docs/               # .md documentation files
-│   │   └── src                 # Other files
-│   ├── page02/                 # Files for menu point 2
-│   │   ├── docs/               # .md documentation files
-│   │   └── src                 # Other files     
-│   └── index.md                # Home Page MkDocs 
-├── .gitignore                  # Local files that don't get pushed to the remote repository
-├── .gitlab-ci.yml              # CI pipeline to build GitLab Page for MkDocs
-├── mkdocs.yml                  # MkDocs config
-├── README.md                   # Repository overview & setup instructions
-├── requirements.txt            # Python packages that get installed by the setup.sh script
-├── setup.py                    # Python setup script
-└── setup.sh                    # Shell setup script
+├── mkdocs_simple_blog/                 # Simple-blog src files for customization
+├── src/                                # All .md documentation files
+├── .gitignore                          # Local files that don't get pushed to the remote repository
+├── .gitlab-ci.yml                      # CI pipeline to build GitLab Page for MkDocs
+├── mkdocs.yml                          # MkDocs config (Navigation, Theme, etc.)
+├── README.md                           # Repository overview & setup instructions
+├── simple-blog-gh.sh                   # Script to builds compressed site and pushes it to github pages
+├── simple-blog-install-from-tar.sh     # Script that sets up python virtual environment, installs MkDocs & custom simple-blog package
+└── simple-blog-run.sh                  # Script that runs live reloading locally hosted page
 ```
-
----
 
 ## **Getting Started**
 
@@ -35,15 +29,15 @@ This repository contains a sceleton project structure that allows you to costumi
 
 The following steps setup everything needed to run the setup scripts.
 
-**1. Clone This Repository**
+**Clone This Repository**
 
 ```bash
-git clone https://github.com/velveneer/mkdocs-sb-sceleton.git
+git clone `this repository`
 
-cd mkdocs-sb-sceleton
+cd docs
 ```
 
-**2. Install Python**
+**Install Python**
 
 Ensure Python and pip are installed on your system. If Python is not installed on your machine follow the official instructions for your system.
 
@@ -52,7 +46,7 @@ python --version
 pip --version
 ```
 
-**3. Activate Virtual Environment**
+**Activate Virtual Environment**
 
 ```bash
 python3 -m venv .venv
@@ -78,62 +72,111 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-**4. Running Setup Script**
-
-To install mkdocs and the required plugins for this project run:
+**Install MkDocs and Theme packages**
 
 ```bash
-./setup.sh
+pip install mkdocs --no-cache-dir
+
+pip install dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
+```
+
+!!! Note
+    This installs the simple blog theme from the `/dist` folder and not the original version.
+
+**Automatic Setup with Script**
+
+Alternatively you can run these commands the provided script in this folder. Before doing that you need to give the file permission to execute commands:
+
+```bash
+chmod +x simple-blog-install-from-tar.sh
+```
+
+Then run the script:
+
+```bash
+./simple-blog-install-from-tar.sh
+```
+
+Verify the install by using:
+
+```bash
+mkdocs --version 
+
+pip show mkdocs-simple-blog
+```
+
+### Local Host
+
+To host the documentation locally on your machine either run 
+
+```bash
+mkdocs serve --livereload
+```
+
+Or the script:
+
+```bash
+./simple-blog-run.sh
 ```
 
 The documentation will be available at:
 
 [localhost:8000](http://127.0.0.1:8000)
 
----
+!!! Note 
+    This allows instant updates made to the documentation
 
-### Theme Customization
+### Github Host
 
-This MkDocs Documenation uses [Fernando Celmers MkDocs Theme](https://github.com/FernandoCelmer/mkdocs-simple-blog). 
-
-I've made some customizations inside the `mkdocs_simple_blog/` folder to fit the needs of this documentation. If you want to do this yourself follow these steps:
-
-**1. Create your virtual environment**
-   
-```bash
-python -m venv venv
-```
-
-**2. Activate the virtual environment**
-   
-```bash
-source venv/bin/activate
-```
-
-**3. Install the necessary requirements to be able to test the application**
-   
-```bash
-pip install -r requirements.txt --no-cache-dir
-```
-
-**4. Make your changes as desired in the ./mkdocs_simple_blog folder**
-   
-```bash
-ls mkdocs_simple_blog
-```
-
-**5. Run the script that creates and installs the local package to build your new theme**
+If this folder is part of a github repository you can directly push your documentation by either running:
 
 ```bash
-python scripts/install_local.py 
+mkdocs build
+
+mkdocs gh-deploy
 ```
 
-**6. Run your MkDocs site**
+Or using the script:
 
 ```bash
-mkdocs serve
+./simple-blog-gh.sh
 ```
 
-## Contribution 
+### Gitlab Host
 
-If you want to contribute for example to the `setup` documentation, feel free to create your own branch and merge request <3
+If this folder is part of a gitlab repository use the `.gitlab-ci.yml` pipeline script. This automatically builds the site in a pipeline and pushes it to your gitlab pages if this  is activated in your repository.
+
+## **Usage**
+
+Because MkDocs supports all the base features of markdown you can already use everything normally. I've implemented a few additions that are explained below.
+
+### Admonition
+
+To use admonitions write the following syntax:
+
+```md
+!!! Title Name
+    Description
+```
+
+### Code Blocks
+
+To use code blocks you can either use the normal markdown syntax:
+
+```md
+    ```language
+
+    ```
+```
+
+Or use my customization that first hides the whole block behind an accordion. To do this use this syntax:
+
+```md
+<details>
+    <summary>Accordion Title</summary>
+    <pre id="codeblock">
+        <code class="language-php" id="codeblock">The Code you want display goes here</code>
+    </pre>
+</details>
+```
+
