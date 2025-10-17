@@ -10,16 +10,20 @@ This repository contains a sceleton project structure that allows you to costumi
 .
 ├── dist/                               # Contains the custom build python package
 ├── docs/                               # Contains minimum files to use this build in a project
-
 ├── mkdocs_simple_blog/                 # Simple-blog src files for customization
-├── scripts/                            # Simple-blog script files to update template after changes
-├── src/                                # All documentation files
-│   ├── page01/                         # Files for menu point 1
-│   │   ├── docs/                       # .md documentation files
-│   │   └── src                         # Other files
-│   ├── page02/                         # Files for menu point 2
-│   │   ├── docs/                       # .md documentation files
-│   │   └── src                         # Other files     
+├── scripts/                            # Scripts for setup
+│   ├── sb-install.py                # Simple-blog script files to update template after changes
+│   ├── sb-build-package.sh             # Script that builds the package in the /dist folder
+│   ├── sb-build-sceleton.sh            # Script that creates the /docs folder with the files needed to implement this mkdocs in a different project
+│   ├── sb-gh.sh                        # Script to builds compressed site and pushes it to github pages
+│   ├── sb-install-local.sh             # Script that sets up python virtual environment, installs MkDocs & custom simple-blog package
+│   └── sb-run.sh                       # Script that runs live
+├── src/                                # Work Files
+│   ├── md/                             # Documentation files
+│   │   └── sceleton/                   # Topic1
+│   │       └── src/                    # img, etc...
+│   ├── css/                            # Custom CSS files 
+│   │   └── extra.css                   # Custom CSS file    
 │   └── index.md                        # Home Page MkDocs 
 ├── .gitignore                          # Local files that don't get pushed to the remote repository
 ├── .gitlab-ci.yml                      # CI pipeline to build GitLab Page for MkDocs
@@ -27,12 +31,7 @@ This repository contains a sceleton project structure that allows you to costumi
 ├── README-build.md                     # README for the build sceleton
 ├── README.md                           # Repository overview & setup instructions
 ├── requirements.txt                    # Python packages that need to be installed
-├── setup.py                            # Script that is required to build custom simple-blog package
-├── simple-blog-build-package.sh        # Script that builds the package in the /dist folder
-├── simple-blog-build-sceleton.sh       # Script that creates the /docs folder with the files needed to implement this mkdocs in a different project
-├── simple-blog-gh.sh                   # Script to builds compressed site and pushes it to github pages
-├── simple-blog-install-from-tar.sh     # Script that sets up python virtual environment, installs MkDocs & custom simple-blog package
-└── simple-blog-run.sh                  # Script that runs live 
+└── setup.py                            # Script that is required to build custom simple-blog package
 ```
 
 ## **Getting Started**
@@ -46,7 +45,7 @@ The following steps setup everything needed to run the setup scripts.
 ```bash
 git clone https://github.com/velveneer/mkdocs-sb-sceleton.git
 
-cd mkdocs-sb-sceleton
+cd dev-mkdocs-sceleton
 ```
 
 **Install Python**
@@ -100,13 +99,13 @@ pip install dist/mkdocs_simple_blog-0.2.0.tar.gz --no-cache-dir
 Alternatively you can run these commands the provided script in this folder. Before doing that you need to give the file permission to execute commands:
 
 ```bash
-chmod +x simple-blog-install-from-tar.sh
+chmod +x sb-install.sh
 ```
 
 Then run the script:
 
 ```bash
-./simple-blog-install-from-tar.sh
+./sb-install.sh
 ```
 
 Verify the install by using:
@@ -128,7 +127,7 @@ mkdocs serve --livereload
 Or the script:
 
 ```bash
-./simple-blog-run.sh
+./sb-run.sh
 ```
 
 The documentation will be available at:
@@ -151,7 +150,7 @@ mkdocs gh-deploy
 Or using the script:
 
 ```bash
-./simple-blog-gh.sh
+./sb-gh.sh
 ```
 
 ### Gitlab Host
@@ -276,15 +275,15 @@ mkdocs serve
 Or use the scripts:
 
 ```bash
-./simple-blog-build-package.sh
-./simple-blog-install-from-tar.sh
-./simple-blog-run.sh
+./sb-build-package.sh
+./sb-install-from-tar.sh
+./sb-run.sh
 ```
 
 To build a minimal build to use this documentation template in your project use the script:
 
 ```bash
-./simple-blog-build-sceleton.sh
+./sb-build-sceleton.sh
 ```
 
 Then copy the `/docs` folder in your repository and do the setup there.

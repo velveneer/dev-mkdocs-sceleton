@@ -29,9 +29,3 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Page01:
-    - SubPage01:
-      - SubPage01: md/page01/docs/documentation.md
-      - SubPage02: md/page01/docs/documentation.md
-  - Page02:
-    - Page02: md/page02/docs/documentation.md

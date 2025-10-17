@@ -12,12 +12,13 @@ python scripts/install_local.py
 # Make compact build directory
 rm -rd docs
 mkdir docs
+mkdir docs/scripts
 cp -r dist docs/
 cp -r src docs/
 cp mkdocs.yml docs/
-cp simple-blog-gh.sh docs/
-cp simple-blog-install-from-tar.sh docs/install.sh
-cp simple-blog-run.sh docs/run.sh
+cp scripts/sb-gh.sh docs/scripts/gh.sh
+cp scripts/sb-install.sh docs/scripts/install.sh
+cp scripts/sb-run.sh docs/scripts/run.sh
 cp README-build.md docs/README.md
 cp .gitignore docs/
 cp .gitlab-ci.yml docs/
