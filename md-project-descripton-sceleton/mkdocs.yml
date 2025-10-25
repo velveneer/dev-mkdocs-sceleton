@@ -1,0 +1,70 @@
+site_name: JR-DOCS
+
+theme:
+  name: simple-blog
+  highlightjs: true
+    - yaml
+    - bash
+    - php
+    - html
+  admonition:
+      <type>: <icon>
+  sidebar: true
+  navigation_depth: 3
+  components:
+    footer: false
+  site_name_style: overline
+  theme_style: light
+
+docs_dir: src
+
+watch:
+  - src
+
+extra_css:
+  - css/extra.css
+
+markdown_extensions:
+  - admonition
+
+nav:
+  - Home: index.md
+
+  - Project Description:
+    - Background: 
+        - Context: md/project-description/background/context/context.md
+        - Problem: md/project-description/background/problem/problem.md
+        - Starting Situation: md/project-description/background/starting-situation/starting-situation.md
+        - Constraints: md/project-description/background/constraints/constraints.md
+        - Relation to Other Projects: md/project-description/background/relation-other-projects/relation-to-other-projects.md
+        - Team & Responsibilities: md/project-description/background/team-responsibilities/team-responsibilities.md
+    - Definition: 
+      - Product: 
+        - Description: md/project-description/definition/product/description/product-description.md
+        - Structure Plan: md/project-description/definition/product/structure-plan/structure-plan.md
+        - Flow Plan: md/project-description/definition/product/flow-plan/flow-plan.md
+      - Scope:
+        - In-Scope: md/project-description/definition/scope/in-scope/in-scope.md
+        - Out-of-Scope: md/project-description/definition/scope/out-of-scope/out-of-scope.md
+        - Conditions:
+          - Functional: md/project-description/definition/scope/conditions/functional/functional-conditions.md
+          - Non-Functional: md/project-description/definition/scope/conditions/non-functional/non-functional-conditions.md
+          - Technical: md/project-description/definition/scope/conditions/technical/technical-requirements.md
+    - Tolerances:
+      - Schedule: md/project-description/tolerances/schedule/schedule.md
+      - Quality: md/project-description/tolerances/quality/quality.md
+  
+  - Setup:
+    - Development Environment: md/setup/development-environment/development-environment.md
+    - Documentation Environment: md/setup/documentation-environment/documentation-environment.md
+
+  - Development:
+    - pr077:
+      - Overview: md/work/pr077/overview/overview-pr077.md
+    - jr125:
+      - Overview: md/work/jr125/overview/overview-jr125.md
+      - Sources: md/preparation/project-sources/project-sources.md
+      - Issues:
+        - ToDo: md/todo/todo.md
+        - Done: md/todo/done/done.md
+      - Work Tracker: md/work/jr125/work-tracker/work-tracker-jr125.md
